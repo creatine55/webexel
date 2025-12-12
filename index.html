@@ -203,22 +203,63 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="pt-12">
-      <div class="rounded-3xl bg-sky-500/10 border border-sky-400/30 p-6">
-        <p class="text-xs uppercase text-sky-200 mb-1">¿Listo para empezar?</p>
-        <h3 class="text-slate-50 font-semibold mb-2">Cuéntanos sobre tu proyecto y te respondemos en menos de 24h.</h3>
+    <!-- CONTACT SECTION -->
+<section id="contact" aria-label="Contacto" class="pt-4">
+  <div class="rounded-3xl bg-sky-500/15 border border-sky-400/40 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 soft-shadow">
 
-        <div class="mt-4 grid md:grid-cols-2 gap-4">
-          <!-- FORM -->
-          <form action="https://formsubmit.co/webexel0@gmail.com" method="POST" class="flex flex-col gap-3">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://creatine55.github.io/webexel/success.html">
+    <div>
+      <p class="text-xs uppercase tracking-[0.18em] text-sky-200 font-semibold mb-1">¿Listo para empezar?</p>
+      <p class="text-slate-50 font-semibold text-sm mb-1">Déjanos tu mensaje y te responderemos en menos de 24h.</p>
+      <p class="text-sky-100 text-xs mb-2">Formulario seguro y 100% funcional.</p>
 
-            <input name="name" type="text" placeholder="Tu nombre" required class="p-3 rounded-lg bg-slate-900/40 border border-slate-700 text-sm">
-            <input name="email" type="email" placeholder="Tu email" required class="p-3 rounded-lg bg-slate-900/40 border border-slate-700 text-sm">
-            <textarea name="message" placeholder="Cuéntanos brevemente tu proyecto" required class="p-3 rounded-lg bg-slate-900/40 border border-slate-700 text-sm h-28"></textarea>
-            <button type="submit" class="mt-2 inline-flex items-center justify-center px-4 py-3 bg-sky-500 text-slate-900 rounded-lg font-semibold">Enviar mensaje</button>
-          </form>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="mailto:webexel0@gmail.com" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100 transition-colors text-xs font-medium">
+          📧 webexel0@gmail.com
+        </a>
+
+        <a href="https://instagram.com/webexel.dev" target="_blank" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100 transition-colors text-xs font-medium">
+          📸 Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- FORM REAL FUNCIONANDO -->
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2 w-full sm:w-80 bg-slate-900/40 p-4 rounded-xl border border-slate-700/60">
+
+      <!-- KEY DE SEGURIDAD (NO TOCAR) -->
+      <input type="hidden" name="access_key" value="2f8b4dfe-b0fc-41fc-8a35-220bf4b6ce7e">
+
+      <label class="text-xs text-slate-200">Tu nombre</label>
+      <input type="text" name="name" required class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs">
+
+      <label class="text-xs text-slate-200">Correo electrónico</label>
+      <input type="email" name="email" required class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs">
+
+      <label class="text-xs text-slate-200">Mensaje</label>
+      <textarea name="message" required rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs"></textarea>
+
+      <button type="submit" class="focus-ring mt-2 inline-flex items-center justify-center px-4 py-2 rounded-xl bg-sky-500 text-slate-900 font-semibold shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition-colors text-xs">
+        Enviar mensaje
+      </button>
+
+      <!-- Mensaje de éxito -->
+      <p id="success-msg" class="hidden text-green-400 text-xs mt-2">¡Mensaje enviado correctamente!</p>
+
+    </form>
+  </div>
+</section>
+
+<!-- SCRIPT PARA MOSTRAR MENSAJE DE ÉXITO -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = e.target;
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+
 
           <!-- CONTACT LINKS -->
           <div class="flex flex-col justify-center gap-3">
