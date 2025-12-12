@@ -1,349 +1,204 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Webexel — Desarrollo Web Profesional</title>
-  <meta name="description" content="Agencia Webexel: sitios rápidos, responsive y optimizados para convertir. Landing pages, e-commerce y SEO." />
-  <meta name="theme-color" content="#0b1220" />
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Small custom styles to complement Tailwind */
-    :root{--bg:#020617;--card:#0f1724;--muted:#94a3b8}
-    html,body,#app{height:100%}
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px)}
-    .card-shadow{box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    .hover-3d{transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s}
-    .hover-3d:hover{transform:translateY(-8px) rotateX(6deg) rotateY(-6deg);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
-    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-    .in-view{opacity:1;transform:none}
-    /* Floating contact button */
-    .floating-contact{position:fixed;right:20px;bottom:20px;z-index:60}
-    /* Accessible focus ring */
-    .focus-ring:focus{outline:3px solid rgba(56,189,248,0.12);outline-offset:4px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webexel - Desarrollo Web Profesional</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #0a0a0a;
+        color: #fff;
+    }
+
+    header {
+        background: #111;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+        margin: 0;
+        color: #00ff99;
+    }
+
+    nav {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    nav a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+    }
+
+    h2 {
+        color: #00ff99;
+        margin-bottom: 10px;
+    }
+
+    /* Portafolio */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .portfolio-item {
+        background: #111;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #222;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Contacto */
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: none;
+        background: #111;
+        color: #fff;
+    }
+
+    button {
+        background: #00ff99;
+        color: #000;
+        padding: 12px 20px;
+        border: none;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.85;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #111;
+        margin-top: 40px;
+        border-top: 1px solid #222;
+    }
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased" id="app">
 
-  <!-- Header / Nav -->
-  <header class="fixed w-full top-0 left-0 bg-slate-950/70 backdrop-blur z-40 border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-bold">W</div>
-        <div class="leading-tight">
-          <div class="text-slate-50 font-semibold">Webexel</div>
-          <div class="text-slate-400 text-xs -mt-1">Diseño & Desarrollo web</div>
-        </div>
-      </a>
+<body>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#services" class="hover:text-sky-300 transition">Servicios</a>
-        <a href="#portfolio" class="hover:text-sky-300 transition">Portafolio</a>
-        <a href="#process" class="hover:text-sky-300 transition">Proceso</a>
-        <a href="#contact" class="hover:text-sky-300 transition">Contacto</a>
-      </nav>
+<header>
+    <h1>Webexel</h1>
+    <p>Desarrollo Web Profesional</p>
 
-      <div class="md:hidden"> <!-- mobile menu placeholder -->
-        <button id="mobileBtn" class="p-2 rounded-md focus-ring bg-slate-900/40">☰</button>
-      </div>
-    </div>
-  </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
 
-  <main class="max-w-6xl mx-auto px-6 pt-28 pb-20">
-
-    <!-- HERO -->
-    <section class="grid md:grid-cols-2 gap-10 items-center mb-12">
-      <div>
-        <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 mb-4">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <p class="text-xs text-sky-200 font-medium">Sitios web rápidos, escalables y bien diseñados</p>
-        </div>
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">Creamos sitios web que convierten visitas en clientes.</h1>
-        <p class="text-slate-300 mb-6 max-w-xl">Agencia de desarrollo web especializada en landing pages, tiendas online y optimización para SEO. Entregas rápidas y soporte profesional.</p>
-
-        <div class="flex gap-3 flex-wrap">
-          <a href="#contact" class="focus-ring inline-flex items-center px-5 py-3 rounded-xl bg-sky-500 text-slate-900 font-semibold shadow hover:bg-sky-400 transition">Solicitar presupuesto</a>
-          <a href="#portfolio" class="inline-flex items-center px-5 py-3 rounded-xl border border-slate-700 text-slate-200 hover:bg-slate-800/60 transition">Ver proyectos</a>
-        </div>
-
-        <dl class="grid grid-cols-3 gap-4 text-xs text-slate-300 max-w-xs mt-6">
-          <div><dt class="font-semibold text-slate-100">8+</dt><dd>Proyectos lanzados</dd></div>
-          <div><dt class="font-semibold text-slate-100">5</dt><dd>Años de experiencia</dd></div>
-          <div><dt class="font-semibold text-slate-100">8+</dt><dd>Clientes felices</dd></div>
-        </dl>
-      </div>
-
-      <!-- HERO CARD with projects -->
-      <aside class="rounded-3xl glass border border-slate-800 p-6 card-shadow">
-        <p class="text-xs uppercase text-slate-400 mb-2">Proyectos destacados</p>
-        <div class="grid grid-cols-2 gap-3">
-          <a href="https://agendify.pro/" target="_blank" class="block rounded-xl p-3 bg-slate-900/60 border border-slate-700 hover:border-sky-400 transition">
-            <p class="text-[10px] text-slate-300 font-medium">Agendify</p>
-            <p class="text-[9px] text-slate-400">App gestión de citas</p>
-          </a>
-
-          <a href="https://www.restaurup.com/" target="_blank" class="block rounded-xl p-3 bg-slate-900/60 border border-slate-700 hover:border-sky-400 transition">
-            <p class="text-[10px] text-slate-300 font-medium">Restaurup</p>
-            <p class="text-[9px] text-slate-400">Plataforma restaurantes</p>
-          </a>
-
-          <a href="https://axelresells.com/" target="_blank" class="block rounded-xl p-3 bg-slate-900/60 border border-slate-700 hover:border-sky-400 transition">
-            <p class="text-[10px] text-slate-300 font-medium">Axel Resells</p>
-            <p class="text-[9px] text-slate-400">Portfolio personal</p>
-          </a>
-
-          <a href="https://front-farmacia.vercel.app/" target="_blank" class="block rounded-xl p-3 bg-slate-900/60 border border-slate-700 hover:border-sky-400 transition">
-            <p class="text-[10px] text-slate-300 font-medium">Farmacia</p>
-            <p class="text-[9px] text-slate-400">E-commerce salud</p>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-3 gap-3 text-[10px] text-slate-200 mt-4">
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-            <p class="text-emerald-300 font-semibold text-xs mb-0.5">100%</p>
-            <p class="text-slate-400">Responsive</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-            <p class="text-sky-300 font-semibold text-xs mb-0.5">SEO</p>
-            <p class="text-slate-400">Optimizado</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-            <p class="text-amber-300 font-semibold text-xs mb-0.5">Fast</p>
-            <p class="text-slate-400">Veloz</p>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- SERVICES grid (fade in) -->
-    <section id="services" class="pt-8">
-      <h2 class="text-xl font-semibold mb-4">Servicios de desarrollo web</h2>
-      <p class="text-slate-300 text-sm mb-6 max-w-2xl">Estrategia, diseño y desarrollo. Entregas rápidas y soporte continuo.</p>
-
-      <div class="grid md:grid-cols-3 gap-5">
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-6 hover-3d fade-in">
-          <div class="w-9 h-9 rounded-xl bg-sky-500/20 flex items-center justify-center mb-3">🎨</div>
-          <h3 class="text-slate-50 font-semibold">Diseño web a medida</h3>
-          <p class="text-slate-300 text-xs mt-2">Interfaces limpias, conversion-focused y adaptadas a tu marca.</p>
-        </article>
-
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-6 hover-3d fade-in">
-          <div class="w-9 h-9 rounded-xl bg-sky-500/20 flex items-center justify-center mb-3">🛒</div>
-          <h3 class="text-slate-50 font-semibold">Tiendas online & apps web</h3>
-          <p class="text-slate-300 text-xs mt-2">E-commerce listos para vender con integración de pagos.</p>
-        </article>
-
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-6 hover-3d fade-in">
-          <div class="w-9 h-9 rounded-xl bg-sky-500/20 flex items-center justify-center mb-3">🚀</div>
-          <h3 class="text-slate-50 font-semibold">Optimización, SEO & mantenimiento</h3>
-          <p class="text-slate-300 text-xs mt-2">Mejoramos velocidad, ranking y mantenemos tu sitio seguro.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO enhanced -->
-    <section id="portfolio" class="pt-12">
-      <h2 class="text-xl font-semibold mb-4">Portafolio</h2>
-      <p class="text-slate-300 text-sm mb-6">Proyectos recientes — clic para ver en vivo.</p>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Each project uses hover-3d and fade-in -->
-        <article class="rounded-2xl bg-slate-900/60 border border-slate-700 p-4 hover-3d fade-in">
-          <div class="overflow-hidden rounded-lg mb-3">
-            <img src="https://agendify.pro/cover.png" alt="Agendify" class="w-full object-cover h-40 transition-transform transform hover:scale-105">
-          </div>
-          <h3 class="text-slate-50 font-semibold">Agendify</h3>
-          <p class="text-slate-300 text-xs mb-3">App de gestión de turnos.</p>
-          <a href="https://agendify.pro/" target="_blank" class="text-sky-300 text-sm underline">Ver proyecto</a>
-        </article>
-
-        <article class="rounded-2xl bg-slate-900/60 border border-slate-700 p-4 hover-3d fade-in">
-          <div class="overflow-hidden rounded-lg mb-3">
-            <img src="https://www.restaurup.com/assets/img/home.webp" alt="Restaurup" class="w-full object-cover h-40 transition-transform transform hover:scale-105">
-          </div>
-          <h3 class="text-slate-50 font-semibold">Restaurup</h3>
-          <p class="text-slate-300 text-xs mb-3">Plataforma para restaurantes.</p>
-          <a href="https://restaurup.com" target="_blank" class="text-sky-300 text-sm underline">Ver proyecto</a>
-        </article>
-
-        <article class="rounded-2xl bg-slate-900/60 border border-slate-700 p-4 hover-3d fade-in">
-          <div class="overflow-hidden rounded-lg mb-3">
-            <img src="https://axelresells.com/banner.png" alt="Axel Resells" class="w-full object-cover h-40 transition-transform transform hover:scale-105">
-          </div>
-          <h3 class="text-slate-50 font-semibold">Axel Resells</h3>
-          <p class="text-slate-300 text-xs mb-3">Portfolio y e-retail.</p>
-          <a href="https://axelresells.com" target="_blank" class="text-sky-300 text-sm underline">Ver proyecto</a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process" class="pt-12">
-      <h2 class="text-xl font-semibold mb-4">Nuestro proceso</h2>
-      <ol class="grid md:grid-cols-4 gap-4 text-xs">
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
-          <div class="text-slate-50 font-semibold">1. Descubrimiento</div>
-          <div class="text-slate-300 text-xs">Brief & estrategia</div>
-        </li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
-          <div class="text-slate-50 font-semibold">2. Diseño</div>
-          <div class="text-slate-300 text-xs">Wireframes & prototipos</div>
-        </li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
-          <div class="text-slate-50 font-semibold">3. Desarrollo</div>
-          <div class="text-slate-300 text-xs">Implementación & testing</div>
-        </li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700 p-4">
-          <div class="text-slate-50 font-semibold">4. Lanzamiento</div>
-          <div class="text-slate-300 text-xs">Publicación & soporte</div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- CONTACT -->
-   <section id="contact" class="contact">
-  <h2>Contacto</h2>
-  <p>Escríbeme y te responderé a la brevedad.</p>
-
-  <form id="contactForm">
-    <input type="text" id="name" placeholder="Tu nombre" required>
-    <input type="email" id="email" placeholder="Tu email" required>
-    <textarea id="message" placeholder="Tu mensaje" required></textarea>
-
-    <button type="submit">Enviar mensaje</button>
-  </form>
-
-  <p id="formMessage" style="display:none; margin-top:10px; color:#00ff88; font-weight:bold;">
-    ¡Mensaje enviado! Te voy a responder por Instagram.
-  </p>
+<!-- Inicio -->
+<section id="inicio">
+    <h2>Impulsa tu negocio con una web moderna</h2>
+    <p>Diseño profesional, rápido y optimizado para ventas.</p>
 </section>
+
+<!-- Servicios -->
+<section id="servicios">
+    <h2>Servicios</h2>
+    <p>Lo que ofrezco a mis clientes:</p>
+
+    <ul style="list-style:none; padding:0; margin-top:20px;">
+        <li>✔️ Desarrollo de páginas web modernas</li>
+        <li>✔️ Landings para ventas</li>
+        <li>✔️ Tiendas online</li>
+        <li>✔️ Optimización de velocidad</li>
+        <li>✔️ Webs 100% responsive</li>
+    </ul>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>Algunos de mis trabajos recientes:</p>
+
+    <div class="portfolio-grid">
+
+        <div class="portfolio-item">
+            <img src="https://i.imgur.com/Cl9WnwA.png">
+            <p>Landing para agencia</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://i.imgur.com/ZFfjjfF.png">
+            <p>Web corporativa</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://i.imgur.com/DhVHB8x.png">
+            <p>Portfolio personal</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Escríbeme y te responderé a la brevedad.</p>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Tu nombre" required>
+        <input type="email" id="email" placeholder="Tu email" required>
+        <textarea id="message" rows="5" placeholder="Tu mensaje" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <p id="formMessage" style="display:none; margin-top:10px; color:#00ff88; font-weight:bold;">
+        ¡Mensaje enviado! Te contacto por Instagram.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 Webexel - Todos los derechos reservados.</p>
+</footer>
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    // Mostrar confirmación
+    // Mostrar mensaje
     document.getElementById("formMessage").style.display = "block";
 
-    // Redirige a tu Instagram después de 1.5 segundos
+    // Redirigir luego de 1.5s
     setTimeout(() => {
-        window.location.href = "https://instagram.com/tu_usuario"; 
+        window.location.href = "https://instagram.com/creatine55";
     }, 1500);
 });
 </script>
 
-      <!-- KEY DE SEGURIDAD (NO TOCAR) -->
-      <input type="hidden" name="access_key" value="2f8b4dfe-b0fc-41fc-8a35-220bf4b6ce7e">
-
-      <label class="text-xs text-slate-200">Tu nombre</label>
-      <input type="text" name="name" required class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs">
-
-      <label class="text-xs text-slate-200">Correo electrónico</label>
-      <input type="email" name="email" required class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs">
-
-      <label class="text-xs text-slate-200">Mensaje</label>
-      <textarea name="message" required rows="3" class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 text-xs"></textarea>
-
-      <button type="submit" class="focus-ring mt-2 inline-flex items-center justify-center px-4 py-2 rounded-xl bg-sky-500 text-slate-900 font-semibold shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition-colors text-xs">
-        Enviar mensaje
-      </button>
-
-      <!-- Mensaje de éxito -->
-      <p id="success-msg" class="hidden text-green-400 text-xs mt-2">¡Mensaje enviado correctamente!</p>
-
-    </form>
-  </div>
-</section>
-
-<!-- SCRIPT PARA MOSTRAR MENSAJE DE ÉXITO -->
-<script>
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
-
-    fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-    })
-
-
-          <!-- CONTACT LINKS -->
-          <div class="flex flex-col justify-center gap-3">
-            <a href="#" class="text-sky-300">webexel0@gmail.com</a>
-            <div class="text-slate-300 text-sm">O también podés escribir por:</div>
-            <div class="flex gap-3">
-              <a href="https://instagram.com/webexel.dev" target="_blank" class="text-sky-300">Instagram</a>
-              <a href="https://www.linkedin.com/company/webexel/" target="_blank" class="text-sky-300">LinkedIn</a>
-            </div>
-
-            <div class="mt-4 text-slate-400 text-xs">También ofrecemos mantenimiento mensual, landing express y optimización SEO — consultanos precios.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Floating contact CTA -->
-  <a href="#contact" class="floating-contact focus-ring bg-sky-500 text-slate-900 px-4 py-3 rounded-full shadow-lg">Contactar</a>
-
-  <!-- Footer -->
-  <footer class="mt-12 text-center py-6 text-slate-500">© 2025 Webexel. Todos los derechos reservados.</footer>
-
-  <!-- Smooth scroll and in-view JS + auto redirect to ?email=#contact if missing -->
-  <script>
-    // Intersection observer to add 'in-view' class for fade-in
-    (function(){
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); } });
-      },{threshold:0.12});
-      document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-    })();
-
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',function(e){
-        e.preventDefault();
-        const id = this.getAttribute('href');
-        document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
-        history.replaceState(null,'',id);
-      });
-    });
-
-    // Force URL to include ?email=#contact (only once)
-    (function(){
-      const desired = window.location.origin + window.location.pathname + '?email=#contact';
-      if(window.location.href !== desired){
-        // avoid infinite loop if already has query but not exactly the same (we prefer to keep other queries)
-        if(!window.location.search.includes('email=')){
-          window.history.replaceState(null,'',desired);
-        }
-      }
-    })();
-  </script>
 </body>
 </html>
-
-<!--
-  success.html (create as a separate file in your repo at /success.html)
-  ---------------------------------------------------------------
-  <!doctype html>
-  <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gracias — Webexel</title>
-    <style>body{background:#020617;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;font-family:Inter,system-ui,Arial;}a{color:#38bdf8}</style>
-  </head>
-  <body>
-    <div style="text-align:center;max-width:520px;padding:20px;border-radius:12px">
-      <h1>¡Gracias! 🟢</h1>
-      <p>Recibimos tu mensaje. Te respondemos en menos de 24 horas.</p>
-      <p style="margin-top:18px"><a href="/">Volver al sitio</a></p>
-    </div>
-  </body>
-  </html>
--->
-
