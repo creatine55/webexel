@@ -1,499 +1,196 @@
-<!doctype html>
-<html lang="es" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <title>Agencia de Desarrollo Web</title><!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script><!-- Canva SDKs -->
-  <script src="/_sdk/element_sdk.js"></script>
-  <style>
-    body {
-      box-sizing: border-box;
-    }
-    /* Suave sombra y transiciones */
-    .card-shadow {
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.22);
-    }
-    .soft-shadow {
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
-    }
-    .focus-ring:focus-visible {
-      outline: 3px solid rgba(248, 250, 252, 0.85);
-      outline-offset: 2px;
-    }
-  </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full w-full m-0 p-0">
-  <div id="app-root" class="h-full w-full">
-   <header class="w-full h-full bg-slate-900 flex items-center justify-center">
-    <div class="w-full h-full overflow-auto">
-     <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col gap-12"><!-- NAV -->
-      <nav class="flex items-center justify-between">
-       <div class="flex items-center gap-3"><!-- Simple logo SVG -->
-        <div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-500 to-blue-600 border-2 border-sky-400/50"><span class="text-white font-bold text-lg">W</span>
-        </div>
-        <div>
-         <p id="logo-text" class="text-slate-50 font-semibold tracking-tight text-lg">Webexel</p>
-         <p class="text-slate-300 text-xs">Diseño &amp; Desarrollo web</p>
-        </div>
-       </div>
-       <div class="hidden md:flex items-center gap-6 text-sm"><a href="#services" class="text-slate-200 hover:text-sky-300 transition-colors">Servicios</a> <a href="#process" class="text-slate-200 hover:text-sky-300 transition-colors">Proceso</a> <a href="#contact" class="text-slate-200 hover:text-sky-300 transition-colors">Contacto</a>
-       </div>
-      </nav><!-- HERO -->
-      <main class="grid md:grid-cols-2 gap-10 items-center">
-       <section aria-labelledby="hero-title">
-        <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 border border-sky-400/40 px-3 py-1 mb-4"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-         <p class="text-xs text-sky-200 font-medium tracking-wide">Sitios web rápidos, escalables y bien diseñados</p>
-        </div>
-        <h1 id="hero-title" class="text-slate-50 font-bold leading-tight mb-4">Creamos sitios web que convierten visitas en clientes.</h1>
-        <p id="hero-subtitle" class="text-slate-200 mb-6 max-w-xl">Agencia de desarrollo web especializada en páginas modernas, responsivas y optimizadas para SEO. Desde landing pages hasta e‑commerce completos, te acompañamos de la idea al lanzamiento.</p>
-        <div class="flex flex-wrap items-center gap-4 mb-6"><button id="hero-cta" type="button" class="focus-ring inline-flex items-center justify-center px-6 py-3 rounded-xl bg-sky-500 text-slate-900 font-semibold shadow-lg shadow-sky-500/40 hover:bg-sky-400 active:bg-sky-300 transition-colors text-sm"> Solicitar presupuesto </button> <button type="button" class="focus-ring inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-600/70 text-slate-100 hover:bg-slate-800/70 transition-colors text-sm font-medium"> Ver proyectos </button>
-        </div>
-        <dl class="grid grid-cols-3 gap-4 text-xs text-slate-300 max-w-xs">
-         <div>
-          <dt class="font-semibold text-slate-100">
-           8+
-          </dt>
-          <dd>
-           Proyectos lanzados
-          </dd>
-         </div>
-         <div>
-          <dt class="font-semibold text-slate-100">
-           5
-          </dt>
-          <dd>
-           Años de experiencia
-          </dd>
-         </div>
-         <div>
-          <dt class="font-semibold text-slate-100">
-           8+
-          </dt>
-          <dd>
-           Clientes felices
-          </dd>
-         </div>
-        </dl>
-       </section><!-- HERO CARD -->
-       <aside class="relative" aria-label="Proyectos destacados">
-        <div class="rounded-3xl bg-slate-900/60 border border-slate-700/80 card-shadow p-6 flex flex-col gap-4">
-         <div class="mb-1">
-          <p class="text-xs uppercase tracking-[0.18em] text-slate-400 font-semibold">proyectos destacados</p>
-          <p class="text-sm text-slate-50 font-semibold mt-1">8+ proyectos lanzados</p>
-         </div>
-         <div class="grid grid-cols-2 gap-3"><a href="https://agendify.pro/" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-slate-800/80 border border-slate-700/70 p-3 hover:border-sky-400/50 transition-all group">
-           <div class="flex items-center gap-2 mb-2">
-            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-            <p class="text-[10px] text-slate-300 font-medium">Agendify</p>
-           </div><p class="text-[9px] text-slate-400">App gestión de citas</p></a> <a href="https://www.restaurup.com/" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-slate-800/80 border border-slate-700/70 p-3 hover:border-sky-400/50 transition-all group">
-           <div class="flex items-center gap-2 mb-2">
-            <div class="w-2 h-2 rounded-full bg-sky-400"></div>
-            <p class="text-[10px] text-slate-300 font-medium">Restaurup</p>
-           </div><p class="text-[9px] text-slate-400">Plataforma restaurantes</p></a> <a href="https://axelresells.com/" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-slate-800/80 border border-slate-700/70 p-3 hover:border-sky-400/50 transition-all group">
-           <div class="flex items-center gap-2 mb-2">
-            <div class="w-2 h-2 rounded-full bg-purple-400"></div>
-            <p class="text-[10px] text-slate-300 font-medium">Axel Resells</p>
-           </div><p class="text-[9px] text-slate-400">Portfolio personal</p></a> <a href="https://front-farmacia.vercel.app/" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-slate-800/80 border border-slate-700/70 p-3 hover:border-sky-400/50 transition-all group">
-           <div class="flex items-center gap-2 mb-2">
-            <div class="w-2 h-2 rounded-full bg-teal-400"></div>
-            <p class="text-[10px] text-slate-300 font-medium">Farmacia</p>
-           </div><p class="text-[9px] text-slate-400">E-commerce salud</p></a>
-         </div>
-         <div class="rounded-xl bg-slate-800/60 border border-slate-700/60 p-3 mt-1">
-          <p class="text-[10px] text-slate-300 font-medium mb-2">Más proyectos:</p>
-          <div class="flex flex-wrap gap-1.5"><a href="https://coinnecta-cnn.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-[9px] text-sky-300 hover:text-sky-200 underline">Coinnecta</a> <span class="text-slate-600">•</span> <a href="https://azul-profundo.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-[9px] text-sky-300 hover:text-sky-200 underline">Azul Profundo</a> <span class="text-slate-600">•</span> <a href="https://caos-conexion.familiayformacion.com/" target="_blank" rel="noopener noreferrer" class="text-[9px] text-sky-300 hover:text-sky-200 underline">Caos Conexión</a> <span class="text-slate-600">•</span> <a href="https://pubertad-adolescencia.familiayformacion.com/" target="_blank" rel="noopener noreferrer" class="text-[9px] text-sky-300 hover:text-sky-200 underline">Pubertad</a>
-          </div>
-         </div>
-         <div class="grid grid-cols-3 gap-3 text-[10px] text-slate-200 mt-1">
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-           <p class="text-emerald-300 font-semibold text-xs mb-0.5">100%</p>
-           <p class="text-slate-400">Responsive</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-           <p class="text-sky-300 font-semibold text-xs mb-0.5">SEO</p>
-           <p class="text-slate-400">Optimizado</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/70 border border-slate-600/60 px-2 py-2 text-center">
-           <p class="text-amber-300 font-semibold text-xs mb-0.5">Fast</p>
-           <p class="text-slate-400">Veloz</p>
-          </div>
-         </div>
-        </div>
-       </aside>
-      </main><!-- SERVICES -->
-      <section id="services" aria-labelledby="services-title" class="pt-4">
-       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-        <div>
-         <h2 id="services-title" class="text-slate-50 font-semibold text-xl mb-1">Servicios de desarrollo web</h2>
-         <p class="text-slate-300 text-sm max-w-xl">Te acompañamos en todo el ciclo: estrategia, diseño, desarrollo, lanzamiento y optimización continua.</p>
-        </div>
-       </div>
-       <div class="grid md:grid-cols-3 gap-5"><!-- Service 1 -->
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-5 flex flex-col gap-3 soft-shadow">
-         <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-400/60 flex items-center justify-center text-sky-300"><span aria-hidden="true">🎨</span>
-         </div>
-         <h3 id="service-1-title" class="text-slate-50 font-semibold text-sm">Diseño web a medida</h3>
-         <p id="service-1-desc" class="text-slate-300 text-xs leading-relaxed">Interfaces modernas, limpias y centradas en la conversión, totalmente adaptadas a tu marca.</p>
-         <ul class="text-[11px] text-slate-400 space-y-1 mt-1">
-          <li>• Diseño responsive</li>
-          <li>• Prototipos interactivos</li>
-          <li>• Enfoque en experiencia de usuario</li>
-         </ul>
-        </article><!-- Service 2 -->
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-5 flex flex-col gap-3 soft-shadow">
-         <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-400/60 flex items-center justify-center text-sky-300"><span aria-hidden="true">🛒</span>
-         </div>
-         <h3 id="service-2-title" class="text-slate-50 font-semibold text-sm">Tiendas online &amp; apps web</h3>
-         <p id="service-2-desc" class="text-slate-300 text-xs leading-relaxed">Desarrollo de e‑commerce y aplicaciones web rápidas, seguras y fáciles de administrar.</p>
-         <ul class="text-[11px] text-slate-400 space-y-1 mt-1">
-          <li>• Integración con pasarelas de pago</li>
-          <li>• Panel de administración</li>
-          <li>• Escalables y mantenibles</li>
-         </ul>
-        </article><!-- Service 3 -->
-        <article class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-5 flex flex-col gap-3 soft-shadow">
-         <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-400/60 flex items-center justify-center text-sky-300"><span aria-hidden="true">🚀</span>
-         </div>
-         <h3 id="service-3-title" class="text-slate-50 font-semibold text-sm">Optimización, SEO &amp; mantenimiento</h3>
-         <p id="service-3-desc" class="text-slate-300 text-xs leading-relaxed">Mejoramos rendimiento, posicionamiento y mantenemos tu sitio siempre rápido y actualizado.</p>
-         <ul class="text-[11px] text-slate-400 space-y-1 mt-1">
-          <li>• SEO técnico on‑page</li>
-          <li>• Mejora de velocidad</li>
-          <li>• Soporte y actualizaciones</li>
-         </ul>
-        </article>
-       </div>
-      </section><!-- PROCESS -->
-      <section id="process" aria-labelledby="process-title" class="pt-4">
-       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-5">
-        <div>
-         <h2 id="process-title" class="text-slate-50 font-semibold text-xl mb-1">Nuestro proceso de trabajo</h2>
-         <p class="text-slate-300 text-sm max-w-xl">Un flujo claro y transparente para que sepas en todo momento en qué fase está tu proyecto.</p>
-        </div>
-       </div>
-       <ol class="grid md:grid-cols-4 gap-4 text-xs text-slate-200">
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-4 flex flex-col gap-2">
-         <div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400/70 flex items-center justify-center text-[11px] font-semibold text-sky-200"> 1 </span> <span class="text-[10px] text-slate-400 uppercase tracking-[0.18em]">Descubrimiento</span>
-         </div><p class="font-semibold text-slate-50 text-xs">Reunión inicial &amp; briefing</p><p class="text-slate-300">Entendemos tu negocio, objetivos y definimos el alcance del proyecto.</p></li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-4 flex flex-col gap-2">
-         <div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400/70 flex items-center justify-center text-[11px] font-semibold text-sky-200"> 2 </span> <span class="text-[10px] text-slate-400 uppercase tracking-[0.18em]">Diseño</span>
-         </div><p class="font-semibold text-slate-50 text-xs">Wireframes &amp; prototipos</p><p class="text-slate-300">Plasmamos la estructura y el look &amp; feel antes de pasar a desarrollo.</p></li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-4 flex flex-col gap-2">
-         <div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400/70 flex items-center justify-center text-[11px] font-semibold text-sky-200"> 3 </span> <span class="text-[10px] text-slate-400 uppercase tracking-[0.18em]">Desarrollo</span>
-         </div><p class="font-semibold text-slate-50 text-xs">Implementación &amp; testing</p><p class="text-slate-300">Construimos el sitio optimizado, seguro y adaptado a todos los dispositivos.</p></li>
-        <li class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-4 flex flex-col gap-2">
-         <div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-sky-500/20 border border-sky-400/70 flex items-center justify-center text-[11px] font-semibold text-sky-200"> 4 </span> <span class="text-[10px] text-slate-400 uppercase tracking-[0.18em]">Lanzamiento</span>
-         </div><p class="font-semibold text-slate-50 text-xs">Publicación &amp; soporte</p><p class="text-slate-300">Lanzamos tu proyecto y te acompañamos con mantenimiento y mejoras.</p></li>
-       </ol>
-      </section><!-- CONTACT CTA -->
-<section id="contact" aria-label="Contacto" class="pt-4">
-    <div class="rounded-3xl bg-sky-500/15 border border-sky-400/40 px-6 py-5 flex flex-col gap-6 soft-shadow">
-
-        <div>
-            <p class="text-xs uppercase tracking-[0.18em] text-sky-200 font-semibold mb-1">¿Listo para empezar?</p>
-            <p class="text-slate-50 font-semibold text-sm mb-1">Cuéntanos sobre tu proyecto y te responderemos en menos de 24h.</p>
-            <p class="text-sky-100 text-xs mb-2">Ideal para lanzamientos, rediseños o mejoras de rendimiento.</p>
-        </div>
-
-        <!-- FORMULARIO FUNCIONAL -->
-        <form action="https://formsubmit.co/webexel0@gmail.com" method="POST" class="flex flex-col gap-3">
-
-            <!-- anti-spam -->
-            <input type="hidden" name="_captcha" value="false">
-
-            <!-- redirección después de enviar -->
-            <input type="hidden" name="_next" value="https://creatina55.github.io/webexel/">
-
-            <input type="text" name="name" placeholder="Tu nombre" required
-                class="bg-slate-900/40 border border-sky-400/30 text-slate-100 text-sm p-2 rounded-md">
-
-            <input type="email" name="email" placeholder="Tu email" required
-                class="bg-slate-900/40 border border-sky-400/30 text-slate-100 text-sm p-2 rounded-md">
-
-            <textarea name="message" placeholder="Cuéntanos tu proyecto..." required
-                class="bg-slate-900/40 border border-sky-400/30 text-slate-100 text-sm p-2 rounded-md h-24"></textarea>
-
-            <button type="submit"
-                class="bg-sky-600 hover:bg-sky-500 transition text-white text-sm py-2 rounded-md font-semibold">
-                Enviar mensaje
-            </button>
-        </form>
-
-        <!-- TUS ENLACES (SE MANTIENEN) -->
-        <div class="flex flex-wrap items-center gap-3 text-xs">
-            <a href="mailto:webexel0@gmail.com" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100">
-                webexel0@gmail.com
-            </a>
-            <a href="https://instagram.com/webexel.dev" target="_blank" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100">
-                Instagram
-            </a>
-            <a href="https://www.linkedin.com/company/webexel/" target="_blank" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100">
-                LinkedIn
-            </a>
-        </div>
-    </div>
-</section>
-
-         </div>
-        </div><!-- Demo contact mini-form (no persistencia, solo demo visual) -->
-        <form class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto" aria-label="Formulario rápido de contacto">
-         <div class="flex-1"><label for="email" class="sr-only">Correo electrónico</label> <input id="email" name="email" type="email" class="w-full px-3 py-2 rounded-xl bg-slate-950/60 border border-slate-500/70 text-slate-50 placeholder:text-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-sky-400" placeholder="Tu correo">
-         </div><button type="submit" class="focus-ring inline-flex items-center justify-center px-5 py-2 rounded-xl bg-sky-500 text-slate-900 text-xs font-semibold hover:bg-sky-400 active:bg-sky-300 transition-colors whitespace-nowrap"> Enviar mensaje </button>
-        </form>
-       </div>
-      </section><!-- FOOTER -->
-      <footer class="pt-4 border-t border-slate-800 mt-2">
-       <p id="footer-text" class="text-[11px] text-slate-500">© 2025 Tu Agencia de Desarrollo Web. Todos los derechos reservados.</p>
-      </footer>
-     </div>
-    </div>
-   </header>
-  </div>
-  <script>
-    // Config por defecto para el Element SDK
-    const defaultConfig = {
-      // Colores (máximo 5)
-      background_color: "#020617",      // fondo principal (slate-950/900)
-      surface_color: "#020617",         // tarjetas y superficies (similar pero editable)
-      text_color: "#e5e7eb",            // texto principal
-      primary_action_color: "#38bdf8",  // botones principales (sky-500)
-      secondary_action_color: "#475569",// bordes y botones secundarios (slate-600)
-
-      // Tipografía
-      font_family: "Inter",
-      font_size: 15,
-
-      // Textos editables
-      hero_title: "Creamos sitios web que convierten visitas en clientes.",
-      hero_subtitle: "Agencia de desarrollo web especializada en páginas modernas, responsivas y optimizadas para SEO. Desde landing pages hasta e‑commerce completos, te acompañamos de la idea al lanzamiento.",
-      hero_cta_text: "Solicitar presupuesto",
-
-      services_title: "Servicios de desarrollo web",
-      service_1_title: "Diseño web a medida",
-      service_1_desc: "Interfaces modernas, limpias y centradas en la conversión, totalmente adaptadas a tu marca.",
-      service_2_title: "Tiendas online & apps web",
-      service_2_desc: "Desarrollo de e‑commerce y aplicaciones web rápidas, seguras y fáciles de administrar.",
-      service_3_title: "Optimización, SEO & mantenimiento",
-      service_3_desc: "Mejoramos rendimiento, posicionamiento y mantenemos tu sitio siempre rápido y actualizado.",
-      process_title: "Nuestro proceso de trabajo",
-      footer_text: "© 2025 Tu Agencia de Desarrollo Web. Todos los derechos reservados."
-    };
-
-    // Accesos rápidos a elementos que vamos a actualizar
-    const domRefs = {
-      root: document.getElementById("app-root"),
-      heroTitle: document.getElementById("hero-title"),
-      heroSubtitle: document.getElementById("hero-subtitle"),
-      heroCta: document.getElementById("hero-cta"),
-      servicesTitle: document.getElementById("services-title"),
-      service1Title: document.getElementById("service-1-title"),
-      service1Desc: document.getElementById("service-1-desc"),
-      service2Title: document.getElementById("service-2-title"),
-      service2Desc: document.getElementById("service-2-desc"),
-      service3Title: document.getElementById("service-3-title"),
-      service3Desc: document.getElementById("service-3-desc"),
-      processTitle: document.getElementById("process-title"),
-      footerText: document.getElementById("footer-text")
-    };
-
-    // Función que aplica el config actual a la UI
-    async function applyConfig(config) {
-      const cfg = Object.assign({}, defaultConfig, config || {});
-
-      // Fuente base y tamaño proporcional
-      const baseFont = cfg.font_family || defaultConfig.font_family;
-      const baseSize = Number(cfg.font_size || defaultConfig.font_size);
-      const fontStack = `${baseFont}, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
-
-      if (domRefs.root) {
-        domRefs.root.style.fontFamily = fontStack;
-        domRefs.root.style.fontSize = baseSize + "px";
-        domRefs.root.style.backgroundColor = cfg.background_color;
-      }
-
-      // Escala de tamaños de texto
-      if (domRefs.heroTitle) {
-        domRefs.heroTitle.style.fontFamily = fontStack;
-        domRefs.heroTitle.style.fontSize = baseSize * 2 + "px";
-        domRefs.heroTitle.style.color = cfg.text_color;
-        domRefs.heroTitle.textContent = cfg.hero_title || defaultConfig.hero_title;
-      }
-
-      if (domRefs.heroSubtitle) {
-        domRefs.heroSubtitle.style.fontFamily = fontStack;
-        domRefs.heroSubtitle.style.fontSize = baseSize * 0.9 + "px";
-        domRefs.heroSubtitle.style.color = cfg.text_color;
-        domRefs.heroSubtitle.textContent = cfg.hero_subtitle || defaultConfig.hero_subtitle;
-      }
-
-      if (domRefs.heroCta) {
-        domRefs.heroCta.style.backgroundColor = cfg.primary_action_color;
-        domRefs.heroCta.style.color = "#020617";
-        domRefs.heroCta.style.fontFamily = fontStack;
-        domRefs.heroCta.style.fontSize = baseSize * 0.9 + "px";
-        domRefs.heroCta.textContent = cfg.hero_cta_text || defaultConfig.hero_cta_text;
-      }
-
-      if (domRefs.servicesTitle) {
-        domRefs.servicesTitle.style.fontFamily = fontStack;
-        domRefs.servicesTitle.style.fontSize = baseSize * 1.3 + "px";
-        domRefs.servicesTitle.style.color = cfg.text_color;
-        domRefs.servicesTitle.textContent = cfg.services_title || defaultConfig.services_title;
-      }
-
-      if (domRefs.service1Title) {
-        domRefs.service1Title.style.fontFamily = fontStack;
-        domRefs.service1Title.style.fontSize = baseSize * 0.95 + "px";
-        domRefs.service1Title.style.color = cfg.text_color;
-        domRefs.service1Title.textContent = cfg.service_1_title || defaultConfig.service_1_title;
-      }
-      if (domRefs.service1Desc) {
-        domRefs.service1Desc.style.fontFamily = fontStack;
-        domRefs.service1Desc.style.fontSize = baseSize * 0.8 + "px";
-        domRefs.service1Desc.textContent = cfg.service_1_desc || defaultConfig.service_1_desc;
-      }
-
-      if (domRefs.service2Title) {
-        domRefs.service2Title.style.fontFamily = fontStack;
-        domRefs.service2Title.style.fontSize = baseSize * 0.95 + "px";
-        domRefs.service2Title.style.color = cfg.text_color;
-        domRefs.service2Title.textContent = cfg.service_2_title || defaultConfig.service_2_title;
-      }
-      if (domRefs.service2Desc) {
-        domRefs.service2Desc.style.fontFamily = fontStack;
-        domRefs.service2Desc.style.fontSize = baseSize * 0.8 + "px";
-        domRefs.service2Desc.textContent = cfg.service_2_desc || defaultConfig.service_2_desc;
-      }
-
-      if (domRefs.service3Title) {
-        domRefs.service3Title.style.fontFamily = fontStack;
-        domRefs.service3Title.style.fontSize = baseSize * 0.95 + "px";
-        domRefs.service3Title.style.color = cfg.text_color;
-        domRefs.service3Title.textContent = cfg.service_3_title || defaultConfig.service_3_title;
-      }
-      if (domRefs.service3Desc) {
-        domRefs.service3Desc.style.fontFamily = fontStack;
-        domRefs.service3Desc.style.fontSize = baseSize * 0.8 + "px";
-        domRefs.service3Desc.textContent = cfg.service_3_desc || defaultConfig.service_3_desc;
-      }
-
-      if (domRefs.processTitle) {
-        domRefs.processTitle.style.fontFamily = fontStack;
-        domRefs.processTitle.style.fontSize = baseSize * 1.3 + "px";
-        domRefs.processTitle.style.color = cfg.text_color;
-        domRefs.processTitle.textContent = cfg.process_title || defaultConfig.process_title;
-      }
-
-      if (domRefs.footerText) {
-        domRefs.footerText.style.fontFamily = fontStack;
-        domRefs.footerText.style.fontSize = baseSize * 0.75 + "px";
-        domRefs.footerText.textContent = cfg.footer_text || defaultConfig.footer_text;
-      }
-
-      // Colores generales (background y superficies) – aplicados vía clases y estilos inline
-      document.documentElement.style.backgroundColor = cfg.background_color;
-      document.body.style.backgroundColor = cfg.background_color;
-    }
-
-    // Inicializar Element SDK si est���� disponible
-    if (window.elementSdk && typeof window.elementSdk.init === "function") {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange: async (config) => {
-          await applyConfig(config);
-        },
-        mapToCapabilities: (config) => {
-          const cfg = Object.assign({}, defaultConfig, config || {});
-          return {
-            recolorables: [
-              {
-                get: () => cfg.background_color,
-                set: (value) => {
-                  cfg.background_color = value;
-                  window.elementSdk.setConfig({ background_color: value });
-                }
-              },
-              {
-                get: () => cfg.surface_color,
-                set: (value) => {
-                  cfg.surface_color = value;
-                  window.elementSdk.setConfig({ surface_color: value });
-                }
-              },
-              {
-                get: () => cfg.text_color,
-                set: (value) => {
-                  cfg.text_color = value;
-                  window.elementSdk.setConfig({ text_color: value });
-                }
-              },
-              {
-                get: () => cfg.primary_action_color,
-                set: (value) => {
-                  cfg.primary_action_color = value;
-                  window.elementSdk.setConfig({ primary_action_color: value });
-                }
-              },
-              {
-                get: () => cfg.secondary_action_color,
-                set: (value) => {
-                  cfg.secondary_action_color = value;
-                  window.elementSdk.setConfig({ secondary_action_color: value });
-                }
-              }
-            ],
-            borderables: [],
-            fontEditable: {
-              get: () => cfg.font_family,
-              set: (value) => {
-                cfg.font_family = value;
-                window.elementSdk.setConfig({ font_family: value });
-              }
-            },
-            fontSizeable: {
-              get: () => Number(cfg.font_size),
-              set: (value) => {
-                cfg.font_size = Number(value);
-                window.elementSdk.setConfig({ font_size: Number(value) });
-              }
-            }
-          };
-        },
-        mapToEditPanelValues: (config) => {
-          const cfg = Object.assign({}, defaultConfig, config || {});
-          return new Map([
-            ["hero_title", cfg.hero_title],
-            ["hero_subtitle", cfg.hero_subtitle],
-            ["hero_cta_text", cfg.hero_cta_text],
-            ["services_title", cfg.services_title],
-            ["service_1_title", cfg.service_1_title],
-            ["service_1_desc", cfg.service_1_desc],
-            ["service_2_title", cfg.service_2_title],
-            ["service_2_desc", cfg.service_2_desc],
-            ["service_3_title", cfg.service_3_title],
-            ["service_3_desc", cfg.service_3_desc],
-            ["process_title", cfg.process_title],
-            ["footer_text", cfg.footer_text]
-          ]);
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webexel - Desarrollo Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-      });
+        body {
+            background: #f5f5f5;
+            color: #222;
+        }
+        header {
+            background: #111;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        header img {
+            height: 60px;
+        }
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-      // Aplicar el config inicial
-      applyConfig(window.elementSdk.config || defaultConfig);
-    } else {
-      // Fallback si el SDK no está disponible (vista previa simple)
-      applyConfig(defaultConfig);
-    }
+        .hero {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #111, #333);
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: #ffcc00;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-    // Evitar navegación del formulario de contacto
-    const contactForm = document.querySelector("#contact form");
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9aca011d37bdab38',t:'MTc2NTUwODc3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        .services {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .contact {
+            background: #222;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+        textarea {
+            height: 120px;
+        }
+        .contact button {
+            background: #ffcc00;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        function enviarFormulario(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+            const mensaje = document.getElementById("mensaje").value;
+
+            if (!nombre || !email || !mensaje) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+            alert("Mensaje enviado correctamente. ¡Gracias por contactarte!");
+
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Webexel Logo" />
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Impulsamos tu presencia digital</h1>
+        <p>Diseño Web | E‑commerce | Landing Pages | Publicidad</p>
+        <button class="btn">Comenzar Proyecto</button>
+    </section>
+
+    <section class="services" id="servicios">
+        <h2>Servicios</h2>
+        <div class="service-grid">
+            <div class="service">
+                <h3>Landing Pages</h3>
+                <p>Diseños rápidos y optimizados para convertir clientes.</p>
+            </div>
+            <div class="service">
+                <h3>E‑commerce</h3>
+                <p>Tiendas profesionales listas para vender.</p>
+            </div>
+            <div class="service">
+                <h3>Optimización SEO</h3>
+                <p>Mejora tu posicionamiento y atrae tráfico de calidad.</p>
+            </div>
+            <div class="service">
+                <h3>Publicidad</h3>
+                <p>Campañas en Google Ads y Meta Ads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <h2>Contacto</h2>
+        <form id="contactForm" onsubmit="enviarFormulario(event)">
+            <input type="text" id="nombre" placeholder="Tu nombre" />
+            <input type="email" id="email" placeholder="Tu email" />
+            <textarea id="mensaje" placeholder="Tu mensaje"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2025 Webexel — Desarrollo Web Profesional
+    </footer>
+
+</body>
 </html>
