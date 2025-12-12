@@ -203,28 +203,36 @@
     </section>
 
     <!-- CONTACT -->
-    <!-- CONTACT SECTION -->
-<section id="contact" aria-label="Contacto" class="pt-4">
-  <div class="rounded-3xl bg-sky-500/15 border border-sky-400/40 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 soft-shadow">
+   <section id="contact" class="contact">
+  <h2>Contacto</h2>
+  <p>Escríbeme y te responderé a la brevedad.</p>
 
-    <div>
-      <p class="text-xs uppercase tracking-[0.18em] text-sky-200 font-semibold mb-1">¿Listo para empezar?</p>
-      <p class="text-slate-50 font-semibold text-sm mb-1">Déjanos tu mensaje y te responderemos en menos de 24h.</p>
-      <p class="text-sky-100 text-xs mb-2">Formulario seguro y 100% funcional.</p>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Tu nombre" required>
+    <input type="email" id="email" placeholder="Tu email" required>
+    <textarea id="message" placeholder="Tu mensaje" required></textarea>
 
-      <div class="flex flex-wrap items-center gap-3">
-        <a href="mailto:webexel0@gmail.com" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100 transition-colors text-xs font-medium">
-          📧 webexel0@gmail.com
-        </a>
+    <button type="submit">Enviar mensaje</button>
+  </form>
 
-        <a href="https://instagram.com/webexel.dev" target="_blank" class="inline-flex items-center gap-2 text-sky-200 hover:text-sky-100 transition-colors text-xs font-medium">
-          📸 Instagram
-        </a>
-      </div>
-    </div>
+  <p id="formMessage" style="display:none; margin-top:10px; color:#00ff88; font-weight:bold;">
+    ¡Mensaje enviado! Te voy a responder por Instagram.
+  </p>
+</section>
 
-    <!-- FORM REAL FUNCIONANDO -->
-    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2 w-full sm:w-80 bg-slate-900/40 p-4 rounded-xl border border-slate-700/60">
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Mostrar confirmación
+    document.getElementById("formMessage").style.display = "block";
+
+    // Redirige a tu Instagram después de 1.5 segundos
+    setTimeout(() => {
+        window.location.href = "https://instagram.com/tu_usuario"; 
+    }, 1500);
+});
+</script>
 
       <!-- KEY DE SEGURIDAD (NO TOCAR) -->
       <input type="hidden" name="access_key" value="2f8b4dfe-b0fc-41fc-8a35-220bf4b6ce7e">
